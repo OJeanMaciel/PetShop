@@ -1,8 +1,9 @@
 import 'dart:ui';
-import 'package:petshop/constants.dart';
-import 'package:petshop/models/categorias.dart';
 import 'banner.dart';
+import 'models/lista_categorias.dart';
 import 'package:flutter/material.dart';
+import 'package:petshop/models/categorias.dart';
+import 'package:petshop/post/post_detail_page.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -35,48 +36,22 @@ class _BodyState extends State<Body> {
             ],
           ),
             Expanded(child: GridView.builder(
-            itemCount: categorias.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, childAspectRatio: 0.80),
+              itemCount: categorias.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, 
+              childAspectRatio: 0.75,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
+              ),
+
               itemBuilder: (context, index) => CategoriasListContainer(
-                categoria: categorias[index],
-              ))),
-
-        ],
-      ),
-    );
-  }
-}
-
-class CategoriasListContainer extends StatelessWidget {
-  const CategoriasListContainer({
-    Key? key,
-    this.categoria,
-  }) : super(key: key);
-  final categoria;
-  
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        children: [
-          Container(
-            height: 180,
-            width: 160,
-            decoration: BoxDecoration(
-              color: KPrimaryColor,
-              borderRadius: BorderRadius.circular(20)),
-              child: Image.asset(categoria.image),
-              ),
-
-              Text(
-                categoria.title,
-                style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16),
-              ),
+                product: categorias[index], 
+                press: () => Navigator.push(context,
+                 MaterialPageRoute (builder: (context) => 
+                 PostDetailPage( 
+                   categorias: categorias[index],
+                 ))),
+              )))
 
         ],
       ),
