@@ -17,7 +17,6 @@ class _BodyState extends State<Body> {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
-
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           HomeBanner(size: size),

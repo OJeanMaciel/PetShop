@@ -37,9 +37,9 @@ class CategoriasListContainer extends StatelessWidget {
                   style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16),
-              ),
-              )],
-              ),
+            ),
+            )],
+            ),
     );
   }
 }

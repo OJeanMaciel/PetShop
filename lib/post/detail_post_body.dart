@@ -6,8 +6,13 @@ class Body extends StatelessWidget {
   final Categoria categoria;
 
   const Body({Key? key, required this.categoria}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
+
+    //Rotas
+    void rota() async => Navigator.pushReplacementNamed( context, '${categoria.url}');
 
     Size size = MediaQuery.of(context).size;
     return Column(
@@ -71,15 +76,18 @@ class Body extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-
-                      FlatButton(
-                        color: KPrimaryColor,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                      onPressed:  () {},
+                      
+                      TextButton(
+                        style: TextButton.styleFrom(
+                        primary: Colors.white, 
+                        backgroundColor: Colors.black,
+                        elevation: 5,
+                      ),
+                      onPressed: () => rota(),
                       child: Text(
-                      "${categoria.title}",
+                      "${categoria.button}",
                       style: TextStyle(fontSize: 18),
-                      ))
+                      )),
                       ],
                 ),
               ),

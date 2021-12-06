@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petshop/constants.dart';
 import 'package:petshop/models/categorias.dart';
+import 'package:petshop/pages/page_carrinho.dart';
 import 'package:petshop/post/detail_post_body.dart';
 
 class PostDetailPage extends StatelessWidget {
@@ -22,7 +23,12 @@ class PostDetailPage extends StatelessWidget {
           color: Colors.white,
         ),
         actions: [
-          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {})
+          IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PageCarrinho()),
+            );
+          })
         ],
       ),
       body: Body(categoria: categorias),

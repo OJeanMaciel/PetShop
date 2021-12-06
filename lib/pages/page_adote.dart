@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:petshop/body.dart';
 import 'package:petshop/constants.dart';
+import 'package:petshop/pages/body_adote.dart';
 
 class PageAdote extends StatefulWidget {
 
@@ -12,24 +12,19 @@ class _PageAdoteState extends State<PageAdote> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: KBgColor,
-
       appBar: AppBar(
-
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-
-        title: Text('Mimos Pet',
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
+        title: Text('Adote um PET',
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),        
         centerTitle: true,
-        actions: [CircleAvatar(
-          backgroundColor: KPrimaryColor,
-        )],
+        elevation: 0,
+        backgroundColor: KPrimaryColor,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
       ),
-      body: Body(),
-      drawer: Drawer(),
+      body: BodyAdocoes(),
     );
   }
 }
